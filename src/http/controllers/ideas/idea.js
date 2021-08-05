@@ -1,4 +1,4 @@
-import { responseObject } from '../../../Helpers/common';
+import { responseObject } from '../../../helpers/common';
 import {
   createIdea,
   deleteIdea,
