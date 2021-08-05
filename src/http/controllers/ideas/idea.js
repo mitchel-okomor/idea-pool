@@ -5,24 +5,14 @@ import {
   updateIdea,
   getUserIdeas,
 } from '../../../services/idea';
-import { HTTP_UNAUTHORIZED } from '../../../helpers/httpCodes';
 
 class IdeaController {}
 
 IdeaController.createIdea = async (req, res, next) => {
-  const user = req.user;
+  const userId = req.user.id;
   const ideaInfo = req.body;
 
-  // if (!userId)
-  //   responseObject(
-  //     res,
-  //     HTTP_UNAUTHORIZED,
-  //     'error',
-  //     null,
-  //     'Kindly login to access this resource'
-  //   );
-
-  const newIdea = await createIdea(1, ideaInfo);
+  const newIdea = await createIdea(userId, ideaInfo);
 
   const { rCode, rState, rData, rMessage } = newIdea;
 
@@ -30,17 +20,7 @@ IdeaController.createIdea = async (req, res, next) => {
 };
 
 IdeaController.deleteIdea = async (req, res, next) => {
-  const user = req.user;
   const ideaId = req.params.id;
-
-  // if (!userId)
-  //   responseObject(
-  //     res,
-  //     HTTP_UNAUTHORIZED,
-  //     'error',
-  //     null,
-  //     'Kindly login to access this resource'
-  //   );
 
   const newIdea = await deleteIdea(ideaId);
 
@@ -50,18 +30,8 @@ IdeaController.deleteIdea = async (req, res, next) => {
 };
 
 IdeaController.updateIdea = async (req, res, next) => {
-  const user = req.user;
   const ideaId = req.params.id;
   const ideaInfo = req.body;
-
-  // if (!userId)
-  //   responseObject(
-  //     res,
-  //     HTTP_UNAUTHORIZED,
-  //     'error',
-  //     null,
-  //     'Kindly login to access this resource'
-  //   );
 
   const ideaData = await updateIdea(ideaId, ideaInfo);
 
@@ -71,17 +41,7 @@ IdeaController.updateIdea = async (req, res, next) => {
 };
 
 IdeaController.fetchUserIdeas = async (req, res, next) => {
-  const user = req.user;
-  const userId = req.params.userId;
-
-  // if (!userId)
-  //   responseObject(
-  //     res,
-  //     HTTP_UNAUTHORIZED,
-  //     'error',
-  //     null,
-  //     'Kindly login to access this resource'
-  //   );
+  const userId = req.user.id;
 
   const ideaData = await getUserIdeas(userId);
 
