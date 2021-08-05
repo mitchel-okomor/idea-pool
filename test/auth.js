@@ -15,7 +15,7 @@ describe('Api endpoints', () => {
       { url: base_url + 'signin', form },
       function (error, response, body) {
         if (error) {
-          return console.error('upload failed:', error);
+          return console.error('upload failed: ', error);
         }
         loginToken = JSON.parse(body).data.token;
         id = JSON.parse(body).data.userId;
@@ -23,85 +23,5 @@ describe('Api endpoints', () => {
         done();
       }
     );
-  });
-
-  describe('/employees', () => {
-    it('get all employees', (done) => {
-      request.get(
-        {
-          url: base_url + 'employees',
-          headers: {
-            authorization: loginToken,
-          },
-        },
-        function (error, response) {
-          if (error) {
-            return console.error('Error:', error);
-          }
-          expect(response.statusCode).to.equal(200);
-          done();
-        }
-      );
-    });
-  });
-
-  describe('/employee/:id', () => {
-    it('get a single employee', (done) => {
-      request.get(
-        {
-          url: base_url + 'employee/' + id,
-          headers: {
-            authorization: loginToken,
-          },
-        },
-        function (error, response) {
-          if (error) {
-            return console.error('Error:', error);
-          }
-          expect(response.statusCode).to.equal(200);
-          done();
-        }
-      );
-    });
-  });
-
-  describe('/article/empId', () => {
-    it('get a single article', (done) => {
-      request.get(
-        {
-          url: base_url + 'article/' + id,
-          headers: {
-            authorization: loginToken,
-          },
-        },
-        function (error, response) {
-          if (error) {
-            return console.error('Error:', error);
-          }
-          expect(response.statusCode).to.equal(200);
-          done();
-        }
-      );
-    });
-  });
-
-  describe('/articles/empId', () => {
-    it('get all articles', (done) => {
-      request.get(
-        {
-          url: base_url + 'articles/' + id,
-          headers: {
-            authorization: loginToken,
-          },
-        },
-        function (error, response) {
-          if (error) {
-            return console.error('Error:', error);
-          }
-          expect(response.statusCode).to.equal(200);
-          done();
-        }
-      );
-    });
   });
 });
