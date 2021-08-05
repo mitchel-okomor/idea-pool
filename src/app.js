@@ -11,11 +11,7 @@ import cookieParser from 'cookie-parser'; // Cookie management
 import path from 'path'; // Path parser
 import cors from 'cors'; // CORS configurator
 import session from 'express-session'; // REST API session manager
-import {
-  databaseConfig,
-  productionClient,
-  testClient,
-} from './Helpers/settings'; // All user-defined environment configurations
+import { databaseConfig } from './Helpers/settings'; // All user-defined environment configurations
 import router from './Router/router'; // Application routes
 
 //global config
@@ -27,17 +23,9 @@ const corsOptions = {
 };
 
 // Get Common configurations
-const params = { jwtSecret: process.env.JWT_SECRET };
-
-if (process.env.NODE_ENV === 'production') {
-  params.client = productionClient;
-} else {
-  params.client = testClient;
-}
+const params = { secret: process.env.JWT_SECRET };
 
 app.use(logger('dev')); // Enable Logging
-//app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
-//app.use(bodyParser.json()); // Send JSON responses
 
 app.use(cors(corsOptions)); // Enable CORS from client-side
 app.use(express.json());
@@ -57,11 +45,12 @@ const sessionStore = new MySQlStore(databaseOptions);
 // Database Setup, this must be successful for every other thing to run
 // session store Setup
 const sessionParameters = session({
-  secret: params.jwtSecret,
+  key: 'userId',
+  secret: params.secret,
   saveUninitialized: false,
   resave: false,
   store: sessionStore,
-  cookie: { path: '/', secure: true, expires: 60 * 60 * 24 },
+  cookie: { expires: 60 * 60 * 24 },
 });
 
 app.use(sessionParameters);

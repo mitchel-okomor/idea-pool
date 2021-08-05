@@ -8,7 +8,7 @@ const db = require('../models');
 const PUB_KEY = global.config.common.APP_PUB_KEY;
 
 const options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken('token'),
   secretOrKey: PUB_KEY,
   algorithms: ['RS256'],
 };

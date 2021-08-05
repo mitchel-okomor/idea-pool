@@ -86,7 +86,7 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-syncModels(true);
+syncModels(false);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

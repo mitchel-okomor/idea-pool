@@ -20,7 +20,7 @@ export default function (app) {
 
   // api Routes
   apiRoutes.use('/auth', authRoutes);
-  apiRoutes.use('/ideas', requireAuth, ideasRoutes);
+  apiRoutes.use('/ideas', ideasRoutes);
 
   // Set url for API group routes
   app.use('/api', apiRoutes);

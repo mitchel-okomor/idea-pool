@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
 import { issueJwt, responseInfo } from '../helpers/common';
-import { v4 } from 'uuid';
 import db from '../models';
 import {
   HTTP_BAD_REQUEST,
@@ -12,7 +11,6 @@ import util from 'util';
 import '../config/global';
 
 const User = db.User;
-const UserProfile = db.UserProfile;
 const genSalt = util.promisify(bcrypt.genSalt);
 const hashPassword = util.promisify(bcrypt.hash);
 const comparePasswords = util.promisify(bcrypt.compare);
@@ -43,7 +41,7 @@ export const loginUser = async (userEmail, password) => {
 
     const loggedInUser = user.dataValues;
 
-    const { id, firstName, lastName, email, phone, roles } = loggedInUser;
+    const { id, name, email } = loggedInUser;
     const jwt = issueJwt(loggedInUser);
 
     if (!jwt) {
@@ -56,11 +54,8 @@ export const loginUser = async (userEmail, password) => {
     const newUser = {
       user: {
         id,
-        firstName,
-        lastName,
+        name,
         email,
-        phone,
-        roles,
       },
       token: jwt.token,
       expiresIn: jwt.expires,
@@ -80,7 +75,8 @@ export const loginUser = async (userEmail, password) => {
  * @returns User object
  */
 export const createUser = async (data) => {
-  const { firstName, lastName, email, password, phone, roles } = data;
+  const { name, email, password } = data;
+  console.log(data);
 
   try {
     const user = await User.findOne({
@@ -100,25 +96,16 @@ export const createUser = async (data) => {
     const hashedPassword = await hashPassword(password, salt, null);
 
     const createdUser = await User.create({
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
+      name: name.trim(),
       email: email.trim(),
       password: hashedPassword,
-      phone: phone.trim(),
-      roles: roles,
-      emailVerified: false,
-      isActive: false,
-      verificationKey: v4(),
     });
 
     const newUser = {
       user: {
         id: createdUser.id,
-        firstName: createdUser.firstName.trim(),
-        lastName: createdUser.lastName.trim(),
+        name: createdUser.name.trim(),
         email: createdUser.email.trim(),
-        phone: createdUser.phone.trim(),
-        roles: createdUser.roles,
       },
     };
 
@@ -136,6 +123,41 @@ export const createUser = async (data) => {
         'error',
         null,
         'A server error occured'
+      );
+    }
+  }
+};
+
+export const updateUser = async (id, data) => {
+  const { name, email } = data;
+  console.log(id);
+  try {
+    const newIdea = await User.update(
+      {
+        name,
+        email,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+    console.log(newIdea);
+    return responseInfo(
+      HTTP_CREATED,
+      'success',
+      newIdea,
+      'User updated successful'
+    );
+  } catch (err) {
+    if (err) {
+      console.log(err);
+      return responseInfo(
+        HTTP_SERVER_ERROR,
+        'error',
+        null,
+        'A server error occured!'
       );
     }
   }

@@ -1,4 +1,4 @@
-import { createUser, loginUser } from '../../../services/auth';
+import { createUser, loginUser, updateUser } from '../../../services/auth';
 import db from '../../../models';
 import { errorObject, responseObject } from '../../../Helpers/common';
 
@@ -30,13 +30,33 @@ AuthController.registerUser = async function (req, res, next) {
     return responseObject(res, rCode, rState, null, rMessage);
   }
 
-  const { firstName, lastName, email, password, phone } = req.body;
+  const { name, email, password } = req.body;
 
-  const reqData = { firstName, lastName, email, password, phone };
+  const reqData = { name, email, password };
 
   try {
     const user = await createUser(reqData);
     const { rCode, rState, rData, rMessage } = user;
+
+    return responseObject(res, rCode, rState, rData, rMessage);
+  } catch (err) {
+    console.log(err);
+
+    return errorObject(res, 500, JSON.parse(err.message));
+  }
+};
+
+// Registration Route
+AuthController.updateUser = async function (req, res, next) {
+  //   validate payload
+  const id = req.params.id;
+  const { name, email } = req.body;
+
+  const reqData = { name, email };
+
+  try {
+    const response = await updateUser(id, reqData);
+    const { rCode, rState, rData, rMessage } = response;
 
     return responseObject(res, rCode, rState, rData, rMessage);
   } catch (err) {
