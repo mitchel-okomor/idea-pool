@@ -32,30 +32,30 @@ https://mideapool.herokuapp.com/
 
 ## Signup
 
-https://mideapool.herokuapp.com/api/auth/signup
-Method: POST
-request payload: {
+https://mideapool.herokuapp.com/api/auth/signup\
+Method: POST\
+request payload: {\
 "name": "Peter",
-"email": "me@p.com",
-"password": "password"
+"email": "me@p.com",\
+"password": "password"\
 }
 
-response: {
-"status": "success",
-"data": {
-"user": {
-"id": 5,
-"name": "Peter",
-"email": "me@p.com"
-}
-},
-"message": "Registration Successfull! Kindly login to your email account confirm your email address."
-}
+response: {\
+"status": "success",\
+"data": {\
+"user": {\
+"id": 5,\
+"name": "Peter",\
+"email": "me@p.com"\
+}\
+},\
+"message": "Registration Successfull! Kindly login to your email account confirm your email address."\
+}\
 
 ## Login
 
-https://mideapool.herokuapp.com/api/auth/login
-Method: POST
+https://mideapool.herokuapp.com/api/auth/login\
+Method: POST\
 request payload:{
 "email": "me@p.com",
 "password": "password"

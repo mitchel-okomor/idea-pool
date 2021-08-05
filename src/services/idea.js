@@ -118,7 +118,6 @@ export const getUserIdeas = async (id) => {
       ],
       group: ['id'],
     });
-    console.log(newIdea);
     return responseInfo(HTTP_CREATED, 'success', newIdea, '');
   } catch (err) {
     if (err) {
