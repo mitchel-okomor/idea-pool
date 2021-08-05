@@ -1,6 +1,6 @@
 import { createUser, loginUser, updateUser } from '../../../services/auth';
 import db from '../../../models';
-import { errorObject, responseObject } from '../../../Helpers/common';
+import { errorObject, responseObject } from '../../../helpers/common';
 
 const User = db.User;
 
