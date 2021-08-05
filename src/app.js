@@ -10,7 +10,7 @@ import express from 'express'; // REST API
 import cookieParser from 'cookie-parser'; // Cookie management
 import path from 'path'; // Path parser
 import cors from 'cors'; // CORS configurator
-import router from './Router/router'; // Application routes
+import router from './router/router'; // Application routes
 
 const app = express();
 const corsOptions = {
