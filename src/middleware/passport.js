@@ -22,8 +22,7 @@ const strategy = new JwtStrategy(options, async (payload, done) => {
         id: payload.userId,
       },
     });
-
-    const loggedInUser = user.dataValues;
+    const loggedInUser = user?.dataValues;
     if (user) {
       return done(null, loggedInUser);
     }

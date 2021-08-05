@@ -12,7 +12,7 @@ const Idea = db.Idea;
 class IdeaController {}
 
 IdeaController.createIdea = async (req, res, next) => {
-  const userId = req.params.userId;
+  const userId = req.user.id;
   const ideaInfo = req.body;
 
   //   validate payload
@@ -51,8 +51,7 @@ IdeaController.updateIdea = async (req, res, next) => {
 };
 
 IdeaController.fetchUserIdeas = async (req, res, next) => {
-  const userId = req.user.id;
-
+  const userId = req.params.userId;
   const ideaData = await getUserIdeas(userId);
 
   const { rCode, rState, rData, rMessage } = ideaData;

@@ -72,7 +72,7 @@ respose: {\
 "expiresIn": "1d"\
 },\
 "message": "LoggedIn successfully"\
-}\
+}
 
 ## Update user
 
@@ -83,7 +83,7 @@ Header:{
 }\
 request payload: {\
 "name": "Peter parker 4"\
-}\
+}
 
 response:{\
 "status": "success",\

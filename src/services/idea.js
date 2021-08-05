@@ -98,9 +98,9 @@ export const updateIdea = async (id, IdeaInfo) => {
 
 export const getUserIdeas = async (id) => {
   try {
-    const newIdea = await Idea.findAll({
+    const userIdeas = await Idea.findAll({
       where: {
-        id: id,
+        userId: id,
       },
       attributes: [
         'id',
@@ -116,9 +116,11 @@ export const getUserIdeas = async (id) => {
           'avg',
         ],
       ],
-      group: ['id'],
+      raw: true,
     });
-    return responseInfo(HTTP_CREATED, 'success', newIdea, '');
+
+    console.log(id);
+    return responseInfo(HTTP_CREATED, 'success', userIdeas, '');
   } catch (err) {
     if (err) {
       console.log(err);
