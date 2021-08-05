@@ -14,29 +14,16 @@ const options = {
 };
 
 const User = db.User;
-const UserProfile = db.UserProfile;
 
 const strategy = new JwtStrategy(options, async (payload, done) => {
   try {
     const user = await User.findOne({
       where: {
         id: payload.userId,
-        email: payload.email,
-        emailVerified: true,
-        isActive: true,
       },
     });
 
-    const userProfile = await UserProfile.findOne({
-      where: {
-        userId: user.id,
-      },
-    });
-
-    const loggedInUser = {
-      ...user.dataValues,
-      profileId: userProfile.id,
-    };
+    const loggedInUser = user.dataValues;
     if (user) {
       return done(null, loggedInUser);
     }

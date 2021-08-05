@@ -1,29 +1,21 @@
 /**
- * ===============================================================
+ *
  * File: app.js
  * This file bootstraps all needed modules, plugins and setups
  * needed for smooth running of the application
- * ===============================================================
+ *
  */
 import logger from 'morgan'; // For logging functionalities
 import express from 'express'; // REST API
 import cookieParser from 'cookie-parser'; // Cookie management
 import path from 'path'; // Path parser
 import cors from 'cors'; // CORS configurator
-import session from 'express-session'; // REST API session manager
-import { databaseConfig } from './Helpers/settings'; // All user-defined environment configurations
 import router from './Router/router'; // Application routes
-
-//global config
-import './config/global.js';
 
 const app = express();
 const corsOptions = {
   //origin: process.env.TEST_CLIENT,
 };
-
-// Get Common configurations
-const params = { secret: process.env.JWT_SECRET };
 
 app.use(logger('dev')); // Enable Logging
 
@@ -37,24 +29,6 @@ app.use(express.static(path.join(__dirname, '../public'))); // Enable assets fro
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');
 
-// Get MySQL config options, init sessions and pass to store
-const databaseOptions = databaseConfig;
-const MySQlStore = require('express-mysql-session')(session);
-const sessionStore = new MySQlStore(databaseOptions);
-
-// Database Setup, this must be successful for every other thing to run
-// session store Setup
-const sessionParameters = session({
-  key: 'userId',
-  secret: params.secret,
-  saveUninitialized: false,
-  resave: false,
-  store: sessionStore,
-  cookie: { expires: 60 * 60 * 24 },
-});
-
-app.use(sessionParameters);
-// Import routes to be served
 router(app);
 
 export default app;

@@ -13,14 +13,9 @@ export default function (app) {
     res.sendFile(path.join(__dirname, '../static/index.html'));
   });
 
-  // protected route
-  apiRoutes.get('/protected', requireAuth, (req, res) => {
-    res.send({ content: 'The protected test route is functional!' });
-  });
-
   // api Routes
   apiRoutes.use('/auth', authRoutes);
-  apiRoutes.use('/ideas', ideasRoutes);
+  apiRoutes.use('/ideas', requireAuth, ideasRoutes);
 
   // Set url for API group routes
   app.use('/api', apiRoutes);

@@ -63,8 +63,6 @@ export const issueJwt = (user) => {
   const payload = {
     userId: _id,
     email: user.email,
-    roles: user.roles,
-    iat: Date.now(),
   };
 
   const signedToken = jsonwebtoken.sign(
