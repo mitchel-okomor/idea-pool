@@ -59,7 +59,7 @@ export const loginUser = async (userEmail, password) => {
     };
     return responseInfo(HTTP_OK, 'success', newUser, 'LoggedIn successfully');
   } catch (err) {
-    //console.log(err);
+    console.log(err);
     // eslint-disable-next-line no-undef
     return responseInfo(HTTP_SERVER_ERROR, 'error', null, err.message);
   }
@@ -73,7 +73,6 @@ export const loginUser = async (userEmail, password) => {
  */
 export const createUser = async (data) => {
   const { name, email, password } = data;
-  console.log(data);
 
   try {
     const user = await User.findOne({
@@ -127,7 +126,6 @@ export const createUser = async (data) => {
 
 export const updateUser = async (id, data) => {
   const { name, email } = data;
-  console.log(id);
   try {
     const newIdea = await User.update(
       {
@@ -140,7 +138,6 @@ export const updateUser = async (id, data) => {
         },
       }
     );
-    console.log(newIdea);
     return responseInfo(
       HTTP_CREATED,
       'success',

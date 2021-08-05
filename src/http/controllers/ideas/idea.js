@@ -12,7 +12,7 @@ const Idea = db.Idea;
 class IdeaController {}
 
 IdeaController.createIdea = async (req, res, next) => {
-  const userId = req.user.id;
+  const userId = req.params.userId;
   const ideaInfo = req.body;
 
   //   validate payload

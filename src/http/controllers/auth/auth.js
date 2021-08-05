@@ -47,8 +47,7 @@ AuthController.registerUser = async function (req, res, next) {
 
 // Registration Route
 AuthController.updateUser = async function (req, res, next) {
-  //   validate payload
-  const id = req.user.id;
+  const id = req.params.id;
   const { name, email } = req.body;
 
   const reqData = { name, email };

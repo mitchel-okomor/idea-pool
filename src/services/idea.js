@@ -1,13 +1,13 @@
 import { responseInfo } from '../helpers/common';
 import { HTTP_CREATED, HTTP_SERVER_ERROR } from '../helpers/httpCodes';
 import db from '../models';
+const Sequelize = require('sequelize');
 
 // eslint-disable-next-line no-unused-vars
 const { Idea } = db;
 
 export const createIdea = async (userId, IdeaInfo) => {
   const { text, impact, ease, confidence } = IdeaInfo;
-
   try {
     const newIdea = await Idea.create({
       userId,
@@ -62,7 +62,6 @@ export const deleteIdea = async (id) => {
 
 export const updateIdea = async (id, IdeaInfo) => {
   const { text, impact, ease, confidence } = IdeaInfo;
-  console.log(id);
   try {
     const newIdea = await Idea.update(
       {
@@ -103,6 +102,21 @@ export const getUserIdeas = async (id) => {
       where: {
         id: id,
       },
+      attributes: [
+        'id',
+        'userId',
+        'text',
+        'ease',
+        'impact',
+        'confidence',
+        [
+          Sequelize.literal(
+            '((COALESCE(ease, 0) + COALESCE(impact, 0) + COALESCE(confidence, 0))/3)'
+          ),
+          'avg',
+        ],
+      ],
+      group: ['id'],
     });
     console.log(newIdea);
     return responseInfo(HTTP_CREATED, 'success', newIdea, '');

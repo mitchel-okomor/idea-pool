@@ -3,7 +3,7 @@ import ideasController from '../../http/controllers/ideas/idea';
 
 const router = express.Router();
 
-router.post('/idea', ideasController.createIdea);
+router.post('/idea/:userId', ideasController.createIdea);
 router.get('/idea/:userId', ideasController.fetchUserIdeas);
 router.delete('/idea/:id', ideasController.deleteIdea);
 router.patch('/idea/:id', ideasController.updateIdea);
