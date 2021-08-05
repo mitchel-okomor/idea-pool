@@ -1,8 +1,5 @@
-# FarmRuby Server
+# Idea-Pool Server
 
-A complete ecommerce solution for efficient farm produce supply across Nigeria 
+A backend service for generating ideas
 
 ## Installation
-
-Read the container README.md file.
-

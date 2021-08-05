@@ -1,17 +1,12 @@
 {
-  "name": "farmruby-server",
+  "name": "idea-server",
   "version": "1.0.0",
-  "description": "Farmruby server project",
+  "description": "Idea server project",
   "private": true,
   "scripts": {
     "jwtsecret": "node ./src/config/keyPairGen",
-    "prestart": "babel ./src --copy-files --out-dir build",
-    "start": "node ./build/bin/www",
-    "build": "NODE_ENV=production babel ./src --copy-files --out-dir build",
     "dev": "nodemon --exec babel-node ./src/bin/www",
-    "migrate": "sequelize db:migrate",
-    "lint": "./node_modules/.bin/eslint ./src",
-    "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'"
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
