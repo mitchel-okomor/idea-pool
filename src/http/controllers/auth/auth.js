@@ -12,7 +12,6 @@ AuthController.login = async function (req, res, next) {
   try {
     const loggedInUser = await loginUser(email, password);
     const { rCode, rState, rData, rMessage } = loggedInUser;
-    req.session.User = rData;
     return responseObject(res, rCode, rState, rData, rMessage);
   } catch (err) {
     if (err) {

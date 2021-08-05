@@ -5,12 +5,22 @@ import {
   updateIdea,
   getUserIdeas,
 } from '../../../services/idea';
+import db from '../../../models';
+
+const Idea = db.Idea;
 
 class IdeaController {}
 
 IdeaController.createIdea = async (req, res, next) => {
   const userId = req.user.id;
   const ideaInfo = req.body;
+
+  //   validate payload
+  const validate = await Idea.validatePostData(req);
+  if (validate !== true) {
+    const { rCode, rState, rMessage } = validate;
+    return responseObject(res, rCode, rState, null, rMessage);
+  }
 
   const newIdea = await createIdea(userId, ideaInfo);
 

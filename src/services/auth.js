@@ -26,14 +26,12 @@ export const loginUser = async (userEmail, password) => {
     const user = await User.findOne({
       where: { email: userEmail },
     });
-
     if (user === null) {
       const error = new Error('Incorrect Email or Password');
       return responseInfo(HTTP_BAD_REQUEST, 'error', null, error.message);
     }
 
     const isMatch = await comparePasswords(password, user.password);
-
     if (!isMatch) {
       const error = new Error('Incorrect Email or Password');
       return responseInfo(HTTP_BAD_REQUEST, 'error', null, error.message);
@@ -43,7 +41,6 @@ export const loginUser = async (userEmail, password) => {
 
     const { id, name, email } = loggedInUser;
     const jwt = issueJwt(loggedInUser);
-
     if (!jwt) {
       const error = new Error(
         'The system encountered an error trying to sign you in. Please try again.'
@@ -62,7 +59,7 @@ export const loginUser = async (userEmail, password) => {
     };
     return responseInfo(HTTP_OK, 'success', newUser, 'LoggedIn successfully');
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     // eslint-disable-next-line no-undef
     return responseInfo(HTTP_SERVER_ERROR, 'error', null, err.message);
   }
