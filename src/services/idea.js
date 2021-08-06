@@ -35,7 +35,7 @@ export const deleteIdea = async (id) => {
   try {
     const newIdea = await Idea.destroy({
       where: {
-        userId: id,
+        id: id,
       },
     });
 
