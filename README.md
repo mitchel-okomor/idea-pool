@@ -6,6 +6,7 @@ A backend service for generating ideas
 
 Express
 Mysql
+Equelize,
 JWT
 
 ## Installation
