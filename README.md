@@ -11,13 +11,17 @@ JWT
 
 ## Environment variables
 
-set environemnt variables accordingly
-.env for development environment
-.env.production for production environment
+set environemnt variables accordingly\
+.env for development environment\
+.env.production for production environment\
 
 ## Installation
 
-Yarn install
+"Yarn install" or "npm install" to install all packages
+
+create mysql database with the name "idea_pool"
+
+mysql server must be running on port 3306 or chnage the port in .env
 
 ## Start dev serve
 
