@@ -9,6 +9,12 @@ Mysql
 Equelize,
 JWT
 
+## Environment variables
+
+set environemnt variables accordingly
+.env for development environment
+.env.production for production environment
+
 ## Installation
 
 Yarn install
