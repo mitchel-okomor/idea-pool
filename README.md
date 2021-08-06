@@ -33,7 +33,8 @@ https://mideapool.herokuapp.com/
 
 ## Signup
 
-https://mideapool.herokuapp.com/api/auth/signup\
+https://mideapool.herokuapp.com/api/auth/signup
+
 Method: POST\
 request payload: {\
 "name": "Peter",
@@ -55,7 +56,8 @@ response: {\
 
 ## Login
 
-https://mideapool.herokuapp.com/api/auth/login\
+https://mideapool.herokuapp.com/api/auth/login
+
 Method: POST\
 request payload:{\
 "email": "me@p.com",\
@@ -77,7 +79,8 @@ respose: {\
 
 ## Update user
 
-https://mideapool.herokuapp.com/api/auth/user/1\
+https://mideapool.herokuapp.com/api/auth/user/1
+
 Method: PATCH\
 Header:{
 "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWVAcC5jb20iLCJpYXQiOjE2MjgxNzQwOTk2MTMsImV4cCI6MTYyODE3NDE4NjAxM30.PxNBiDSXLADtvnVRNa7MgVVyXwiFd-yGu36hYO18F0hSk1jauPb15JcQw9tJI8rhdiVK1Zj8DUb_7fW8K9HP-4LirIZ0To4qOZjfHde3YKDVSfReuCUIjXuorOuK_kWBB3EyLlU4JgH9AyblC9OxQtNEQoqBGQnWVjsW3EPvuZy48OvIo0BSCeU1H3FQU6O-gjMaKysPN6VHquFkTa27FalnEGRpKRA3Zu4xWZO6b94HhkLSY0UNZi10tsDiJK40tpYnAXaDSp4b8HQtceSHeQ2Yyj9hhYZNzRLxltOBjq6wVxCfApgNxpKi5zchuQnAD-SKKZZEZERF_Nigmr3l4eZ8MH-0FHf-b_Zkfyi0Qy2R9cxiRTPIEGsyFRCW6cwTFBte-EkdYpodiM_fy9T7NGa9V19p9vgm-ieg583LAzbo9pXG9bn9HR2u9SqTEQDZYbYGh9wlYVdILH5ByqzeP7IEdSmZNVZ2r-CS4Oz44lEVzAHg74F9WjnZRjuqU1hq-IFPByFwhlySmqORLEIoNIyi9b0m9J80s2WYmy2sFrTG9UfznYpGRMPRiGPu-YfxE649MlBwD1ROkvktQugER0lB3VtdCgzV5rqbT6M-xVGgS0ry78wf2br27jitHyEjzWRnerxkomI1c66GLaccwSVaQHOE-FgZdTTLDuNFa30",\
@@ -97,7 +100,8 @@ response:{\
 
 ## Create Idea
 
-https://mideapool.herokuapp.com/api/ideas/idea\
+https://mideapool.herokuapp.com/api/ideas/idea
+
 Method: POST\
 Header:{\
 "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWVAcC5jb20iLCJpYXQiOjE2MjgxNzQwOTk2MTMsImV4cCI6MTYyODE3NDE4NjAxM30.PxNBiDSXLADtvnVRNa7MgVVyXwiFd-yGu36hYO18F0hSk1jauPb15JcQw9tJI8rhdiVK1Zj8DUb_7fW8K9HP-4LirIZ0To4qOZjfHde3YKDVSfReuCUIjXuorOuK_kWBB3EyLlU4JgH9AyblC9OxQtNEQoqBGQnWVjsW3EPvuZy48OvIo0BSCeU1H3FQU6O-gjMaKysPN6VHquFkTa27FalnEGRpKRA3Zu4xWZO6b94HhkLSY0UNZi10tsDiJK40tpYnAXaDSp4b8HQtceSHeQ2Yyj9hhYZNzRLxltOBjq6wVxCfApgNxpKi5zchuQnAD-SKKZZEZERF_Nigmr3l4eZ8MH-0FHf-b_Zkfyi0Qy2R9cxiRTPIEGsyFRCW6cwTFBte-EkdYpodiM_fy9T7NGa9V19p9vgm-ieg583LAzbo9pXG9bn9HR2u9SqTEQDZYbYGh9wlYVdILH5ByqzeP7IEdSmZNVZ2r-CS4Oz44lEVzAHg74F9WjnZRjuqU1hq-IFPByFwhlySmqORLEIoNIyi9b0m9J80s2WYmy2sFrTG9UfznYpGRMPRiGPu-YfxE649MlBwD1ROkvktQugER0lB3VtdCgzV5rqbT6M-xVGgS0ry78wf2br27jitHyEjzWRnerxkomI1c66GLaccwSVaQHOE-FgZdTTLDuNFa30",\
@@ -126,7 +130,8 @@ response: {\
 
 ## Delete Idea
 
-https://mideapool.herokuapp.com/api/ideas/1\
+https://mideapool.herokuapp.com/api/ideas/1
+
 Method: DELETE\
 Header:{\
 "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWVAcC5jb20iLCJpYXQiOjE2MjgxNzQwOTk2MTMsImV4cCI6MTYyODE3NDE4NjAxM30.PxNBiDSXLADtvnVRNa7MgVVyXwiFd-yGu36hYO18F0hSk1jauPb15JcQw9tJI8rhdiVK1Zj8DUb_7fW8K9HP-4LirIZ0To4qOZjfHde3YKDVSfReuCUIjXuorOuK_kWBB3EyLlU4JgH9AyblC9OxQtNEQoqBGQnWVjsW3EPvuZy48OvIo0BSCeU1H3FQU6O-gjMaKysPN6VHquFkTa27FalnEGRpKRA3Zu4xWZO6b94HhkLSY0UNZi10tsDiJK40tpYnAXaDSp4b8HQtceSHeQ2Yyj9hhYZNzRLxltOBjq6wVxCfApgNxpKi5zchuQnAD-SKKZZEZERF_Nigmr3l4eZ8MH-0FHf-b_Zkfyi0Qy2R9cxiRTPIEGsyFRCW6cwTFBte-EkdYpodiM_fy9T7NGa9V19p9vgm-ieg583LAzbo9pXG9bn9HR2u9SqTEQDZYbYGh9wlYVdILH5ByqzeP7IEdSmZNVZ2r-CS4Oz44lEVzAHg74F9WjnZRjuqU1hq-IFPByFwhlySmqORLEIoNIyi9b0m9J80s2WYmy2sFrTG9UfznYpGRMPRiGPu-YfxE649MlBwD1ROkvktQugER0lB3VtdCgzV5rqbT6M-xVGgS0ry78wf2br27jitHyEjzWRnerxkomI1c66GLaccwSVaQHOE-FgZdTTLDuNFa30",\
@@ -138,7 +143,8 @@ Response:{\
 
 ## Update Idea
 
-https://mideapool.herokuapp.com/api/ideas/1\
+https://mideapool.herokuapp.com/api/ideas/1
+
 Method: PATCH\
 Header:{\
 "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWVAcC5jb20iLCJpYXQiOjE2MjgxNzQwOTk2MTMsImV4cCI6MTYyODE3NDE4NjAxM30.PxNBiDSXLADtvnVRNa7MgVVyXwiFd-yGu36hYO18F0hSk1jauPb15JcQw9tJI8rhdiVK1Zj8DUb_7fW8K9HP-4LirIZ0To4qOZjfHde3YKDVSfReuCUIjXuorOuK_kWBB3EyLlU4JgH9AyblC9OxQtNEQoqBGQnWVjsW3EPvuZy48OvIo0BSCeU1H3FQU6O-gjMaKysPN6VHquFkTa27FalnEGRpKRA3Zu4xWZO6b94HhkLSY0UNZi10tsDiJK40tpYnAXaDSp4b8HQtceSHeQ2Yyj9hhYZNzRLxltOBjq6wVxCfApgNxpKi5zchuQnAD-SKKZZEZERF_Nigmr3l4eZ8MH-0FHf-b_Zkfyi0Qy2R9cxiRTPIEGsyFRCW6cwTFBte-EkdYpodiM_fy9T7NGa9V19p9vgm-ieg583LAzbo9pXG9bn9HR2u9SqTEQDZYbYGh9wlYVdILH5ByqzeP7IEdSmZNVZ2r-CS4Oz44lEVzAHg74F9WjnZRjuqU1hq-IFPByFwhlySmqORLEIoNIyi9b0m9J80s2WYmy2sFrTG9UfznYpGRMPRiGPu-YfxE649MlBwD1ROkvktQugER0lB3VtdCgzV5rqbT6M-xVGgS0ry78wf2br27jitHyEjzWRnerxkomI1c66GLaccwSVaQHOE-FgZdTTLDuNFa30",\
@@ -157,7 +163,8 @@ Response:{\
 
 ## Fetch Authorized user ideas
 
-https://mideapool.herokuapp.com/api/ideas/1\
+https://mideapool.herokuapp.com/api/ideas/1
+
 Method: GET\
 Header:{\
 "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoibWVAcC5jb20iLCJpYXQiOjE2MjgxNzQwOTk2MTMsImV4cCI6MTYyODE3NDE4NjAxM30.PxNBiDSXLADtvnVRNa7MgVVyXwiFd-yGu36hYO18F0hSk1jauPb15JcQw9tJI8rhdiVK1Zj8DUb_7fW8K9HP-4LirIZ0To4qOZjfHde3YKDVSfReuCUIjXuorOuK_kWBB3EyLlU4JgH9AyblC9OxQtNEQoqBGQnWVjsW3EPvuZy48OvIo0BSCeU1H3FQU6O-gjMaKysPN6VHquFkTa27FalnEGRpKRA3Zu4xWZO6b94HhkLSY0UNZi10tsDiJK40tpYnAXaDSp4b8HQtceSHeQ2Yyj9hhYZNzRLxltOBjq6wVxCfApgNxpKi5zchuQnAD-SKKZZEZERF_Nigmr3l4eZ8MH-0FHf-b_Zkfyi0Qy2R9cxiRTPIEGsyFRCW6cwTFBte-EkdYpodiM_fy9T7NGa9V19p9vgm-ieg583LAzbo9pXG9bn9HR2u9SqTEQDZYbYGh9wlYVdILH5ByqzeP7IEdSmZNVZ2r-CS4Oz44lEVzAHg74F9WjnZRjuqU1hq-IFPByFwhlySmqORLEIoNIyi9b0m9J80s2WYmy2sFrTG9UfznYpGRMPRiGPu-YfxE649MlBwD1ROkvktQugER0lB3VtdCgzV5rqbT6M-xVGgS0ry78wf2br27jitHyEjzWRnerxkomI1c66GLaccwSVaQHOE-FgZdTTLDuNFa30",\
